@@ -44,6 +44,13 @@ app.post('/api/store', (req, res) => {
     screen();
 
     res.send("OK");
+    var all = JSON.stringify(req.body);    
+    try {
+      fs.writeFileSync('data/all.json', all);
+    } catch (err) {
+      console.error(err);
+    }
+
 });
 
 app.get('/api/validate-fail/', (req, res) => {
@@ -66,6 +73,11 @@ app.get('/api/screen-pass', (req, res) => {
 app.get('/api/screen-fail', (req, res) => {
     res.send(loadFile("screen-pass.json"));    
 });
+
+app.get('/api/all', (req, res) => {
+    res.send(loadFile("all.json"));    
+});
+
 
 app.get('/', (req, res) => {
     res.send('Hello World');

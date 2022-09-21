@@ -71,13 +71,13 @@ function initList(filename){
 
 initList("blocked-names.txt");
 exports.check_block=check_block;
-//TESTING
+// TESTING
 // let tr= new trie();
-// const arr=["abcd","pqr", "bas"];
-// for (const num of arr){
-//     console.log("Inserting ",num);
-//     tr.insert(num);
-// }
+const arr=["lily","v"];
+for (const num of arr){
+    console.log("Inserting ",num);
+    console.log(list.find(num));
+}
 
 // console.log(tr.find("abc"));
 // console.log(tr.find("abcd"));
