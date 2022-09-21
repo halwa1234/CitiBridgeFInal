@@ -21,15 +21,11 @@ function validatedate(date){
 }   
 
 function doValidation(arr){
-  console.log("initial data- ", arr);
 
     for (let i = 0; i < arr.length; i++) {
       
         let flag=1;  
-        if (!checkTranscID(arr[i]["id"])){
-          flag=0; //check id
-        }
-        else if(arr[i]["date"].length!=8 && !validatedate(arr[i]["date"])){
+        if(arr[i]["date"].length!=8 || !validatedate(arr[i]["date"])){
           flag=0; //check date
         }
         else if( !(arr[i]["payeename"].length<36 &&  arr[i]["payername"].length<36 && arr[i]["payeeacc"].length == 12 && arr[i]["payeracc"].length == 12)){
@@ -47,6 +43,9 @@ function doValidation(arr){
                     flag =0;
                 }
             //check amount format.
+        }
+        else if (!checkTranscID(arr[i]["id"])){
+          flag=0; //check id
         }
         
         //write to file

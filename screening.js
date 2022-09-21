@@ -8,7 +8,6 @@ var fail = [];
 function loadFile(){
     try{
         let data=fs.readFileSync(__dirname+"/data/validate-pass.json", "utf-8");
-        console.log(data);
         arr=JSON.parse(data);
     }
     catch(err){
@@ -21,13 +20,11 @@ function saveJSON(){
     var passjson = JSON.stringify(pass);
     fs.writeFile('data/screen-pass.json', passjson, 'utf8', function(err) {
     if (err) throw err;
-    console.log('pass complete');
     });
   
     var failjson = JSON.stringify(fail);
     fs.writeFile('data/screen-fail.json', failjson, 'utf8', function(err) {
     if (err) throw err;
-    console.log('fail complete');
     });
 }
 

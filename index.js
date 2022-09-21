@@ -4,7 +4,6 @@ const express=require("express");
 const app= express();
 const fs = require('fs');
 
-console.log(typeof(validate));
 const password="asdf";
 app.use(express.json());
 app.use(function (req, res, next) {
@@ -30,7 +29,7 @@ var arr="";
 function loadFile(filename){
     try{
         arr=fs.readFileSync(__dirname+"/data/"+filename, "utf-8");
-        console.log(arr);
+        
     }
     catch(err){
         console.log(err);
@@ -39,7 +38,6 @@ function loadFile(filename){
 }
 
 app.post('/api/store', (req, res) => {
-    console.log("Body\n",req.body,"\n\n");
     doValidation(req.body);
     screen();
 
@@ -60,9 +58,9 @@ app.get('/api/validate-fail/', (req, res) => {
 });
 
 app.get('/api/validate-pass', (req, res) => {
-    console.log("pass");
+    
     res.send(loadFile("validate-pass.json"));
-    console.log("After=> ",arr);
+    
 
 });
 
@@ -71,7 +69,7 @@ app.get('/api/screen-pass', (req, res) => {
 });
 
 app.get('/api/screen-fail', (req, res) => {
-    res.send(loadFile("screen-pass.json"));    
+    res.send(loadFile("screen-fail.json"));    
 });
 
 app.get('/api/all', (req, res) => {
