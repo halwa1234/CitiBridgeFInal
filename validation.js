@@ -38,10 +38,24 @@ function doValidation(arr){
           flag=0; //check lenght for amount
         }
         else if(arr[i]["amt"].length<14){
+
+          if(arr[i]["amt"].includes(".")){
             let value = arr[i]["amt"].split(".");
-                if(value[0]?.length>10 || value[1]?.length>2){
+                if(value[0]?.length>10 || value[1]?.length!=2){
                     flag =0;
                 }
+                else{
+                  if(!isNumeric(value[0]) || !isNumeric(value[1]) ){
+                    flag =0;
+                  }
+                }
+          }
+          else{
+            if(arr[i]["amt"].length>10 || !isNumeric(arr[i]["amt"]) ){
+              flag =0;
+            }
+          }
+            
             //check amount format.
         }
         else if (!checkTranscID(arr[i]["id"])){
@@ -63,6 +77,10 @@ function doValidation(arr){
     // console.log("fail");
     // fail.forEach(function (e) {console.log(e)});
     saveJSON();
+}
+
+function isNumeric(value) {
+  return /^-?\d+$/.test(value);
 }
 
 function saveJSON(){
