@@ -31,7 +31,7 @@ function doValidation(arr){
         else if( !(arr[i]["payeename"].length<36 &&  arr[i]["payername"].length<36 && arr[i]["payeeacc"].length == 12 && arr[i]["payeracc"].length == 12)){
           flag =0; //check lenghts of payee and payer details
         }
-        else if(!arr[i]["payeename"].match(/^[0-9a-z]+$/gi) || !arr[i]["payername"].match(/^[0-9a-z]+$/gi) || !arr[i]["payeeacc"].match(/^[0-9a-z]+$/gi) || !arr[i]["payeracc"].match(/^[0-9a-z]+$/gi)){
+        else if(!arr[i]["payeename"].match(/^[0-9a-z/ ]+$/gi) || !arr[i]["payername"].match(/^[0-9a-z/ ]+$/gi) || !arr[i]["payeeacc"].match(/^[0-9a-z]+$/gi) || !arr[i]["payeracc"].match(/^[0-9a-z]+$/gi)){
             flag =0; //check alphanumeric characters for above
         }
         else if(arr[i]["amt"].length>14){
@@ -39,7 +39,7 @@ function doValidation(arr){
         }
         else if(arr[i]["amt"].length<14){
             let value = arr[i]["amt"].split(".");
-                if(value[0].length>10 || value[1].length>2){
+                if(value[0]?.length>10 || value[1]?.length>2){
                     flag =0;
                 }
             //check amount format.

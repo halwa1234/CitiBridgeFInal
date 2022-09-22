@@ -41,7 +41,7 @@ app.post('/api/store', (req, res) => {
     doValidation(req.body);
     screen();
 
-    res.send("OK");
+   // res.send("OK");
     var all = JSON.stringify(req.body);    
     try {
       fs.writeFileSync('data/all.json', all);

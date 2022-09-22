@@ -1,3 +1,5 @@
+
+const parse = require('core-js/features/array/at');
 const fs = require('fs');
 const alphabets=new Array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
 
@@ -69,7 +71,10 @@ function initList(filename){
       }
 }
 
-initList("blocked-names.txt");
+//initList("blocked-names.txt");
+
+console.log(alphabets.at(2));
+
 exports.check_block=check_block;
 // TESTING
 // let tr= new trie();

@@ -147,7 +147,7 @@ var tree= new avlTree();
 
 function checkTranscID(data){
     // !arr[i]["payername"].match(/^[0-9a-z]+$/gi)
-    if(data.length==12 && data.match(/^[0-9a-z]+$/gi)) return tree.insert(new node(data));
+    if(data?.length==12 && data.match(/^[0-9a-z]+$/gi)) return tree.insert(new node(data));
     else return false;
 }
 
