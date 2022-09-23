@@ -41,13 +41,24 @@ function doValidation(arr){
 
           if(arr[i]["amt"].includes(".")){
             let value = arr[i]["amt"].split(".");
-                if(value[0]?.length>10 || value[1]?.length!=2){
+            value[0]=value[0].trim();
+            value[1]=value[1].trim();
+                if(value[0].length>10 || value[1].length<2){
+                  console.log(arr[i]["amt"]);
+                  console.log("**",value[0].length," - ",value[1].length);
                     flag =0;
                 }
                 else{
                   if(!isNumeric(value[0]) || !isNumeric(value[1]) ){
+                    console.log(arr[i]["amt"],"//",value[0],"]]",value[1]);
+                    console.log("--**",!isNumeric(value[0]) ," - ",!isNumeric(value[1]));
                     flag =0;
                   }
+                }
+                if(flag ==1){
+                  
+          console.log(arr[i]["amt"],"//",value[0],"]]",value[1]);
+          console.log("--**",!isNumeric(value[0]) ," - ",!isNumeric(value[1]));
                 }
           }
           else{
@@ -80,7 +91,8 @@ function doValidation(arr){
 }
 
 function isNumeric(value) {
-  return /^-?\d+$/.test(value);
+  return value.match("^[0-9]*$");
+  return /^(?=.*\d).+$/.test(value);
 }
 
 function saveJSON(){
