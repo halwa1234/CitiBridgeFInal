@@ -4,6 +4,7 @@ const fs = require('fs');
 const alphabets=new Array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
 
 function find(str){
+    if(str===" ") return 27;
     start=0;
     end=25;
     while(start<end){
@@ -20,7 +21,7 @@ function find(str){
 class trie{
 
     constructor(){
-        this.arr= new Array(26);
+        this.arr= new Array(27);
         this.end=false;
     }
 
@@ -56,7 +57,7 @@ class trie{
 
 var list=new trie();
 function check_block(str){
-    return list.find(str);
+    return list.find(str.trim());
 }
 
 function initList(filename){
@@ -71,7 +72,7 @@ function initList(filename){
       }
 }
 
-//initList("blocked-names.txt");
+initList("blocked-names.txt");
 
 console.log(alphabets.at(2));
 
