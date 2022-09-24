@@ -1,5 +1,2 @@
-gin
-c
-people
 Mr Mohan Rajput
-Mr Raj Wagh
+Mr Amey Wagh

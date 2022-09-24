@@ -57,15 +57,16 @@ class trie{
 
 var list=new trie();
 function check_block(str){
-    return list.find(str.trim());
+    return list.find(str.trim().toLowerCase());
 }
 
 function initList(filename){
     try {
         var data = fs.readFileSync(__dirname+'/data/'+filename, 'utf8');
         let names= data.trim().split('\n');
+        
         for(const name of names){
-            list.insert(name.trim());
+            list.insert(name.trim().toLowerCase());
         }
       } catch (err) {
         console.error(err);

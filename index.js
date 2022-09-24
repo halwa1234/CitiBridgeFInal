@@ -44,7 +44,7 @@ app.post('/api/store', (req, res) => {
    // res.send("OK");
     var all = JSON.stringify(req.body);    
     try {
-      fs.writeFileSync('data/all.json', all);
+      fs.writeFileSync(__dirname+'/data/all.json', all);
     } catch (err) {
       console.error(err);
     }

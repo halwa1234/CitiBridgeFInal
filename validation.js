@@ -43,7 +43,7 @@ function doValidation(arr){
             let value = arr[i]["amt"].split(".");
             value[0]=value[0].trim();
             value[1]=value[1].trim();
-                if(value[0].length>10 || value[1].length<2){
+                if(value[0].length>10 || value[1].length!=2){
                   console.log(arr[i]["amt"]);
                   console.log("**",value[0].length," - ",value[1].length);
                     flag =0;
@@ -57,8 +57,8 @@ function doValidation(arr){
                 }
                 if(flag ==1){
                   
-          console.log(arr[i]["amt"],"//",value[0],"]]",value[1]);
-          console.log("--**",!isNumeric(value[0]) ," - ",!isNumeric(value[1]));
+          //console.log(arr[i]["amt"],"//",value[0],"]]",value[1]);
+          //console.log("--**",!isNumeric(value[0]) ," - ",!isNumeric(value[1]));
                 }
           }
           else{
